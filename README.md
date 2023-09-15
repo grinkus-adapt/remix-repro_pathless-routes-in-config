@@ -1,58 +1,19 @@
-# Welcome to Remix!
+There's an issue where there's no way to reference the `_invisible` route when [setting up routes in remix.config.js](https://github.com/grinkus-adapt/remix-repro_pathless-routes-in-config/blob/main/remix.config.js#L17), and because of that it's impossible to nest routes under pathless segments if setting them up programatically.
 
-- [Remix Docs](https://remix.run/docs)
+---
 
-## Development
+This is fine (`route-A` displays correctly):
 
-From your terminal:
+![image](https://github.com/grinkus-adapt/remix-repro_pathless-routes-in-config/assets/12794717/b1069db2-c242-4ef8-8047-14f7dc300dd2)
 
-```sh
-npm run dev
-```
+This is also fine (alias `route-1` for `route-A` works correctly):
 
-This starts your app in development mode, rebuilding assets on file changes.
+![image](https://github.com/grinkus-adapt/remix-repro_pathless-routes-in-config/assets/12794717/9a4de99c-333f-41e4-beb2-d4263adbfa30)
 
-## Deployment
+This is also fine (`route-C` displays correctly (is nested under `_invisible` route)):
 
-First, build your app for production:
+![image](https://github.com/grinkus-adapt/remix-repro_pathless-routes-in-config/assets/12794717/ea75a9b5-398d-4ede-bc41-c18ff4bebfb3)
 
-```sh
-npm run build
-```
+This is **wrong** (alias `route-3` for `route-C` **is not** nested under the `_invisible` route):
 
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
-
-### Using a Template
-
-When you ran `npx create-remix@latest` there were a few choices for hosting. You can run that again to create a new project, then copy over relevant code/assets from your current app to the new project that's pre-configured for your target server.
-
-Most importantly, this means everything in the `app/` directory, but if you've further customized your current application outside of there it may also include:
-
-- Any assets you've added/updated in `public/`
-- Any updated versions of root files such as `.eslintrc.js`, etc.
-
-```sh
-cd ..
-# create a new project, and pick a pre-configured host
-npx create-remix@latest
-cd my-new-remix-app
-# remove the new project's app (not the old one!)
-rm -rf app
-# copy your app over
-cp -R ../my-old-remix-app/app app
-```
+![image](https://github.com/grinkus-adapt/remix-repro_pathless-routes-in-config/assets/12794717/b6d0de17-ef8b-4a2b-85aa-fde3bd945cf5)
