@@ -1,4 +1,4 @@
-There's an issue where there's no way to reference the `_invisible` route when [setting up routes in remix.config.js](https://github.com/grinkus-adapt/remix-repro_pathless-routes-in-config/blob/main/remix.config.js#L17), and because of that it's impossible to nest routes under pathless segments if setting them up programatically.
+There's an issue where there's no way to reference the `_invisible` route when [setting up routes in remix.config.js](https://github.com/grinkus-adapt/remix-repro_pathless-routes-in-config/blob/main/remix.config.js#L17), and because of that it's impossible to nest routes under pathless segments if setting them up programmatically.
 
 ---
 
